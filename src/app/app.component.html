@@ -1,0 +1,108 @@
+<h2 class="text-center mt-2"><strong> Student Registration Form</strong></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form #studentform="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="fullname">Full Name</label>
+              <input type="text" class="form-control" ngModel required #fullname="ngModel" name="fullname">
+              <strong class="text-danger" *ngIf="fullname.touched && fullname.hasError('required')">
+                Full Name is required!.
+              </strong>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" ngModel required #email="ngModel" name="email"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+              <strong class="text-danger" *ngIf="email.touched && email.hasError('required')">
+                Email is required!.
+              </strong>
+              <strong class="text-danger" *ngIf="email.touched && email.hasError('pattern')">
+                Email pattern is required!.
+              </strong>
+            </div>
+
+            <div class="form-group">
+              <label for="mobilenumber">Mobile number</label>
+              <input type="text" class="form-control" ngModel required maxlength="10" #mobilenumber="ngModel"
+                name="mobilenumber" (keypress)="onlyNumbers($event)" (input)="onMobileInput($event)"
+                pattern="^[6-9][0-9]{9}$">
+              <strong class="text-danger" *ngIf="mobilenumber.touched && mobilenumber.hasError('required')">
+                Mobile Number is required!.
+              </strong>
+              <strong class="text-danger" *ngIf="mobilenumber.touched && mobilenumber.hasError('pattern')">
+                Mobile Pattern is required!.
+              </strong>
+            </div>
+            <h2>Gender</h2>
+            <div class="form-group">
+              <div class="form-check form-check-inline" *ngFor="let moc of genders">
+                <input class="form-check-input" 
+                required
+                type="radio" name="gender" [value]="moc" ngModel [id]="moc"
+                 #gender="ngModel"
+                >
+                <label class="form-check-label" [for]="moc">
+                  {{ moc }}
+                </label>
+                
+                 <strong class="text-danger"
+          *ngIf="gender.touched && gender.hasError('required')">
+    Gender is required!
+  </strong>
+              </div>
+              <div class="form-group">
+                <label for="SelectCourse">
+                  <h2>Course</h2>
+                </label>
+                <select ngModel required class="form-control" name="SelectCourse" #SelectCourse="ngModel">
+                  <option value="">Select Course</option>
+                  <option value="Angular">Angular</option>
+                  <option value="React">React</option>
+                  <option value="Java">Java</option>
+                  <option value="Python">Python</option>
+                  <option value="Full Stack Development">Full Stack Development</option>
+                  <option value="Data Science">Data Science</option>
+                  <option value="UI/UX Design">UI/UX Design</option>
+                </select>
+                <strong class="text-danger" *ngIf="SelectCourse.touched && SelectCourse.hasError('required')">
+                  Course is required!.
+                </strong>
+              </div>
+
+              <div class="form-group">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" ngModel required #address="ngModel" name="address">
+              </textarea>
+                <strong class="text-danger" *ngIf="address.touched&& address.hasError('required')">
+                  Address is required field.
+                </strong>
+              </div>
+
+              <div class="form-group">
+                <label for="condition">
+                  <input type="checkbox" 
+                  required
+                  type="checkbox"
+                   #condition="ngModel"
+                  name="condition" ngModel id="condition" class="mr-2">Accept Terms & Conditions
+                </label>
+                <strong class="text-danger" *ngIf="condition.touched && condition.hasError('required')">
+  You must accept Terms & Conditions.
+</strong>
+              </div>
+              <div>
+                <button type="submit()" [disabled]="studentform.invalid" mat-raised-button color="primary"
+                  class="w-100">Register</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
