@@ -21,7 +21,7 @@
                 Email is required!.
               </strong>
               <strong class="text-danger" *ngIf="email.touched && email.hasError('pattern')">
-                Email pattern is requiredfield!.
+                Email pattern is required field!.
               </strong>
             </div>
 
@@ -60,13 +60,13 @@
                 </label>
                 <select ngModel required class="form-control" name="SelectCourse" #SelectCourse="ngModel">
                   <option value="">Select Course</option>
-                  <option value="Angular">Angular</option>
-                  <option value="React">React</option>
-                  <option value="Java">Java</option>
-                  <option value="Python">Python</option>
-                  <option value="Full Stack Development">Full Stack Development</option>
-                  <option value="Data Science">Data Science</option>
-                  <option value="UI/UX Design">UI/UX Design</option>
+                  <option value="Angular">HTML</option>
+                  <option value="React">CSS</option>
+                  <option value="Java">Javascript</option>
+                  <option value="Python">Typescript</option>
+                  <option value="Full Stack Development">Mern Stack Development</option>
+                  <option value="Data Science">Data Engineering</option>
+                  <option value="UI/UX Design">UI Development</option>
                 </select>
                 <strong class="text-danger" *ngIf="SelectCourse.touched && SelectCourse.hasError('required')">
                   Course is required!.
