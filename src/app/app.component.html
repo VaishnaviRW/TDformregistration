@@ -21,14 +21,14 @@
                 Email is required!.
               </strong>
               <strong class="text-danger" *ngIf="email.touched && email.hasError('pattern')">
-                Email pattern is required!.
+                Email pattern is requiredfield!.
               </strong>
             </div>
 
             <div class="form-group">
               <label for="mobilenumber">Mobile number</label>
               <input type="text" class="form-control" ngModel required maxlength="10" #mobilenumber="ngModel"
-                name="mobilenumber" (keypress)="onlyNumbers($event)" (input)="onMobileInput($event)"
+                name="mobilenumber" (keypress)="oneNumbers($event)" (input)="onmobInput($event)"
                 pattern="^[6-9][0-9]{9}$">
               <strong class="text-danger" *ngIf="mobilenumber.touched && mobilenumber.hasError('required')">
                 Mobile Number is required!.

@@ -7,27 +7,51 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'TDformregistration';
-  @ViewChild('studentform') studentform!:NgForm
-genders: string[] = ['Male', 'Female'];
-  onSubmit(){
-    if(this.studentform.valid){
-      this.studentform.form.markAllAsTouched()
-    }
-    this.studentform.reset()
+  title = 'TDform registration';
+//   @ViewChild('studentform') studentform!:NgForm
+// genders: string[] = ['Male', 'Female'];
+//   onSubmit(){
+//     if(this.studentform.valid){
+//       this.studentform.form.markAllAsTouched()
+//     }
+//     this.studentform.reset()
+//   }
+// onlyNumbers(event: KeyboardEvent) {
+//   const key = event.key;
+
+//   if (!/^[0-9]$/.test(key)) {
+//     event.preventDefault();
+//   }
+// }
+
+// onMobileInput(event: any) {
+//   event.target.value = event.target.value.replace(/[^0-9]/g, '');
+// }
+// }
+
+@ViewChild('studentform')studentform!:NgForm
+genders:string[] =['Male','Female'];
+onSubmit(){
+  if(this.studentform.valid){
+    this.studentform.form.markAllAsTouched()
+
   }
-onlyNumbers(event: KeyboardEvent) {
-  const key = event.key;
+  this.studentform.reset()
+}
+oneNumbers(event:KeyboardEvent){
+  const key =event.key;
 
   if (!/^[0-9]$/.test(key)) {
     event.preventDefault();
   }
 }
+onmobInput(event:any){
+  event.target.value = event.target.value.replace(/[^0-9]/g,'');
+}
+}
 
-onMobileInput(event: any) {
-  event.target.value = event.target.value.replace(/[^0-9]/g, '');
-}
-}
+   
+
 
 
 
